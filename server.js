@@ -9,6 +9,8 @@ import adminRoutes from "./src/routes/adminRoutes.js";
 import uploadRoutes from "./src/routes/uploadRoutes.js";
 import { Section } from "./src/models/Section.js";
 import { notFound, errorHandler } from "./src/middleware/errorHandler.js";
+import paymentRoutes from "./src/routes/paymentRoutes.js";
+import orderRoutes from "./src/routes/orderRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -39,6 +41,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/sections", sectionRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/payments", paymentRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
